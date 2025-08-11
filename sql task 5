@@ -1,0 +1,25 @@
+SELECT b.Title, c.CategoryName
+FROM Books b
+INNER JOIN Categories c ON b.CategoryID = c.CategoryID;
+
+SELECT b.Title, c.CategoryName
+FROM Books b
+LEFT JOIN Categories c ON b.CategoryID = c.CategoryID;
+
+SELECT b.Title, c.CategoryName
+FROM Books b
+RIGHT JOIN Categories c ON b.CategoryID = c.CategoryID;
+
+SELECT b.Title, c.CategoryName
+FROM Books b
+LEFT JOIN Categories c ON b.CategoryID = c.CategoryID
+UNION
+SELECT b.Title, c.CategoryName
+FROM Books b
+RIGHT JOIN Categories c ON b.CategoryID = c.CategoryID;
+
+SELECT m.Name AS MemberName, b.Title AS BookTitle, l.Name AS LibrarianName
+FROM IssuedBooks ib
+INNER JOIN Members m ON ib.MemberID = m.MemberID
+INNER JOIN Books b ON ib.BookID = b.BookID
+INNER JOIN Librarians l ON ib.LibrarianID = l.LibrarianID;
